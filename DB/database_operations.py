@@ -35,7 +35,7 @@ def insert_user(conn, username, email, password_hash):
         return None
 
 def insert_account(conn, user_id, account_name, account_type_id):
-    """Insere uma nova conta na tabela 'accounts'."""
+
     sql = """
     INSERT INTO accounts (user_id, account_name, account_type_id, current_balance, created_at, updated_at)
     VALUES (?, ?, ?, ?, ?, ?)
@@ -179,7 +179,7 @@ if __name__ == '__main__':
     
     # Primeiro, execute o script de setup para criar as tabelas
     # O arquivo database_setup.py precisa estar no mesmo diretório
-    import database_setup
+    import DB.database_setup as database_setup
     database_setup.setup_database(db_file_name)
     
     # 2. Conecta ao banco de dados
